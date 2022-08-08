@@ -1,2 +1,2 @@
 # MatrixDigitalRain
-![](https://github.com/MatrixDigitalRain/rain.gif)
+![](https://github.com/tbaskijera/MatrixDigitalRain/rain.gif)
