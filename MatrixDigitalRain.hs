@@ -1,25 +1,25 @@
--- Toni Baskijera, Matrix digital rain
+-- Matrix digital rain
 import System.Random
 
--- Ispisuje razmak 1-5 puta, nasumično
+-- Prints whitespace 1-5 times, randomly
 printRandomSpace :: IO ()
 printRandomSpace = do
   number <- randomRIO (1, 5) :: IO Int
   putStr $ unwords $ replicate number " "
 
--- Odabire nasumičan element iz proslijeđene liste
+-- Randomly selects an element from passed list
 getRandomNumber :: [Int] -> IO Int
 getRandomNumber list = do
   i <- randomRIO (0, length list - 1) :: IO Int
   return $ list !! i
 
--- Prosljeđuje listu funkciji getRandomNumber te zatim ispisuje povratnu vrijednost
+-- Passes the list as argument to function getRandomNumber, and then prints the returned value
 printRandomNumber :: IO ()
 printRandomNumber = do
   x <- getRandomNumber [0, 1]
   putStr . show $ x
 
--- Infinite petlja, poziva funkcije koje ispisuju nasumičan broj razmaka i nasumični broj respektivno, te zatim ponovno poziva samu sebe
+-- Infinite loop, calls functions printRandomSpace and printRandomNumber, and then calls itself
 rain :: IO ()
 rain = do
   printRandomSpace
@@ -28,5 +28,5 @@ rain = do
 
 main :: IO ()
 main = do
-  putStrLn $ "\ESC[92m" -- postavljanje boje teksta terminala u zelenu boju, isprobano na Ubuntu
+  putStrLn $ "\ESC[92m" -- sets text color in terminal (tried on Ubuntu)
   rain
